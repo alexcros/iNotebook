@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DBBE5F59-FE6B-44F2-AC4D-17841B74BCC5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>85C5C905297EC4B3ED6D8FFA4C2564FC2A84A42F</key>
+		<string>https://github.com/alexcros/iNotebook.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iNotebook.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>85C5C905297EC4B3ED6D8FFA4C2564FC2A84A42F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/alexcros/iNotebook.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>85C5C905297EC4B3ED6D8FFA4C2564FC2A84A42F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>85C5C905297EC4B3ED6D8FFA4C2564FC2A84A42F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iNotebook</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -13,6 +13,7 @@
 		8E69A43A1AE518D800730A6D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E69A4381AE518D800730A6D /* LaunchScreen.xib */; };
 		8E69A4461AE518D800730A6D /* iNotebookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E69A4451AE518D800730A6D /* iNotebookTests.m */; };
 		8E69A4521AE5191000730A6D /* AGTSimpleCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E69A4511AE5191000730A6D /* AGTSimpleCoreDataStack.m */; };
+		8E69A4551AE51DD200730A6D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E69A4531AE51DD200730A6D /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		8E69A4451AE518D800730A6D /* iNotebookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iNotebookTests.m; sourceTree = "<group>"; };
 		8E69A4501AE5191000730A6D /* AGTSimpleCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTSimpleCoreDataStack.h; sourceTree = "<group>"; };
 		8E69A4511AE5191000730A6D /* AGTSimpleCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTSimpleCoreDataStack.m; sourceTree = "<group>"; };
+		8E69A4541AE51DD200730A6D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			children = (
 				8E69A4501AE5191000730A6D /* AGTSimpleCoreDataStack.h */,
 				8E69A4511AE5191000730A6D /* AGTSimpleCoreDataStack.m */,
+				8E69A4531AE51DD200730A6D /* Model.xcdatamodeld */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				8E69A4351AE518D800730A6D /* AppDelegate.m in Sources */,
 				8E69A4321AE518D800730A6D /* main.m in Sources */,
 				8E69A4521AE5191000730A6D /* AGTSimpleCoreDataStack.m in Sources */,
+				8E69A4551AE51DD200730A6D /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +426,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8E69A4531AE51DD200730A6D /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8E69A4541AE51DD200730A6D /* Model.xcdatamodel */,
+			);
+			currentVersion = 8E69A4541AE51DD200730A6D /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8E69A4241AE518D800730A6D /* Project object */;
 }
