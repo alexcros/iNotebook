@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "AGTSimpleCoreDataStack.h"
+#import "ACCNote.h"
+#import "ACCNotebook.h"
 
 @interface AppDelegate ()
 
@@ -16,9 +19,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // core data instance stack
+    self.model = [AGTSimpleCoreDataStack coreDataStackWithModelName:@"Model"];
+    
+    [self testData];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -43,6 +51,39 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Utils
+
+-(void) testData{
+  
+    /* accesing entities old style
+    // create note
+    NSManagedObject *note = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:self.model.context];
+    
+    // set values in properties with KVC
+    [note setValue:@"WWDC" forKey:@"name"];
+    [note setValue:[NSDate date] forKey:@"creationDate"];
+    
+    NSLog(@"El nombre es: %@", [note valueForKey:@"name"]);
+    NSLog(@"%@",note);	
+    */
+    
+    // new notebook
+    //ACCNotebook *nb= [ACCNotebook notebookWithName:@"mi notebook"
+      //                               context:self.model.context];
+    
+    // create note after Editor > NSManagedObject subclass
+    ACCNote *n = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:self.model.context];
+    
+    // kvc
+    n.creationDate = [NSDate date];
+    n.name = @"new note";
+    
+    // add note to notebook
+  //  n.notebook = nb;
+    
+  //  NSLog(@"%@ %@", nb,n);
 }
 
 @end

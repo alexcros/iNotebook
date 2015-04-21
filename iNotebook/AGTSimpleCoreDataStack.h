@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@import CoreData
+@import CoreData;
 
 @interface AGTSimpleCoreDataStack : NSObject
 

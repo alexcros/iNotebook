@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D131" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="NamedEntity" syncable="YES">
+    <entity name="NamedEntity" representedClassName="ACCNamedEntity" syncable="YES">
         <attribute name="creationDate" attributeType="Date" indexed="YES" syncable="YES"/>
         <attribute name="modificationDate" attributeType="Date" indexed="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Note" parentEntity="NamedEntity" syncable="YES">
+    <entity name="Note" representedClassName="ACCNote" parentEntity="NamedEntity" syncable="YES">
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="notebook" maxCount="1" deletionRule="Nullify" destinationEntity="Notebook" inverseName="notes" inverseEntity="Notebook" syncable="YES"/>
+        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="notes" inverseEntity="Photo" syncable="YES"/>
     </entity>
-    <entity name="Notebook" parentEntity="NamedEntity" syncable="YES"/>
+    <entity name="Notebook" representedClassName="ACCNotebook" parentEntity="NamedEntity" syncable="YES">
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Note" inverseName="notebook" inverseEntity="Note" syncable="YES"/>
+    </entity>
+    <entity name="Photo" representedClassName="ACCPhoto" syncable="YES">
+        <attribute name="imageData" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <relationship name="notes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="photo" inverseEntity="Note" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Notebook" positionX="-63" positionY="-18" width="128" height="45"/>
-        <element name="Note" positionX="-54" positionY="18" width="128" height="60"/>
-        <element name="NamedEntity" positionX="-36" positionY="45" width="128" height="90"/>
+        <element name="Notebook" positionX="-207" positionY="-189" width="128" height="58"/>
+        <element name="Note" positionX="-54" positionY="18" width="128" height="88"/>
+        <element name="NamedEntity" positionX="52" positionY="-279" width="128" height="88"/>
+        <element name="Photo" positionX="306" positionY="15" width="128" height="73"/>
     </elements>
 </model>
