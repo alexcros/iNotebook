@@ -2,6 +2,7 @@
 // Make changes to ACCPhoto.h instead.
 
 #import <CoreData/CoreData.h>
+#import <UIKit/UIkit.h>
 
 extern const struct ACCPhotoAttributes {
 	__unsafe_unretained NSString *imageData;

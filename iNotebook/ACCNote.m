@@ -2,13 +2,16 @@
 
 @interface ACCNote ()
 
-// Private interface goes here.
++(NSArray*) observableKeyNames;
 
 @end
 
 @implementation ACCNote
 
-// Custom logic goes here.
++(NSArray*) observableKeyNames {
+    
+    return @[@"name", @"creationDate",  @"notebook", @"photo"];
+}
 
 +(instancetype) noteWithName:(ACCNote*) name
                     notebook:(ACCNotebook*) notebook
@@ -24,13 +27,15 @@
      
      */
     
-    ACCNote *n = [NSEntityDescription insertNewObjectForEntityForName:[ACCNote entityName] inManagedObjectContext:context];
-    n.creationDate = [NSDate date];
-    n.modificationDate = [NSDate date];
-    n.notebook = notebook;
+    ACCNote *note = [NSEntityDescription insertNewObjectForEntityForName:[ACCNote entityName] inManagedObjectContext:context];
+    note.creationDate = [NSDate date];
+    note.modificationDate = [NSDate date];
+    note.notebook = notebook;
     
-    return n;
+    return note;
     
 }
+
+
 
 @end

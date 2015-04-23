@@ -4,6 +4,7 @@
 // Custom logic goes here.
 
 +(instancetype) noteWithName:(ACCNote*) name
+                    notebook:(ACCNotebook*) notebook
                      context:(NSManagedObjectContext*) context;
 
 @end
