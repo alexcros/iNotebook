@@ -14,11 +14,11 @@
 }
 
 +(instancetype) notebookWithName:(NSString*) name
-                        notebook:(ACCNotebook*) notebook
                          context:(NSManagedObjectContext*) context {
     
     //instance
-
+    ACCNotebook *notebook = [NSEntityDescription insertNewObjectForEntityForName:[ACCNotebook entityName] inManagedObjectContext:context];
+    
     notebook.creationDate = [NSDate date];
     notebook.modificationDate = [NSDate date];
     

@@ -4,7 +4,6 @@
 // Custom logic goes here.
 
 +(instancetype) notebookWithName:(NSString*) name
-                        notebook:(ACCNotebook*) notebook
                          context:(NSManagedObjectContext*) context;
 
 @end

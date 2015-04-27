@@ -34,11 +34,15 @@
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
+    [self save];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    [self save];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -51,39 +55,42 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    NSLog(@"hasta la vista baby");
 }
 
 #pragma mark - Utils
 
 -(void) testData{
   
-    /* accesing entities old style
-    // create note
-    NSManagedObject *note = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:self.model.context];
+    ACCNotebook *firstNotebook = [ACCNotebook notebookWithName:@"New Notebook"
+                                                       context:self.model.context];
     
-    // set values in properties with KVC
-    [note setValue:@"WWDC" forKey:@"name"];
-    [note setValue:[NSDate date] forKey:@"creationDate"];
+    ACCNote *firstNote = [ACCNote noteWithName:@"New Note"
+                                      notebook:firstNotebook
+                                       context:self.model.context];
     
-    NSLog(@"El nombre es: %@", [note valueForKey:@"name"]);
-    NSLog(@"%@",note);	
-    */
+    [ACCNote noteWithName:@"New Note(1)"
+                                       notebook:firstNotebook
+                                        context:self.model.context];
     
-    // new notebook
-    //ACCNotebook *nb= [ACCNotebook notebookWithName:@"mi notebook"
-      //                               context:self.model.context];
     
-    // create note after Editor > NSManagedObject subclass
-    ACCNote *n = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:self.model.context];
+    [self save];
+   
     
-    // kvc
-    n.creationDate = [NSDate date];
-    n.name = @"new note";
     
-    // add note to notebook
-  //  n.notebook = nb;
-    
-  //  NSLog(@"%@ %@", nb,n);
 }
+
+-(void) save {
+    
+    [self.model saveWithErrorBlock:^(NSError *error) {
+        NSLog(@"error saving %s \n\n %@", __func__, error);
+    }];
+
+    
+}
+
+
+
+
 
 @end
