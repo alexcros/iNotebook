@@ -11,10 +11,6 @@
 #import "ACCNote.h"
 #import "ACCNotebook.h"
 
-@interface AppDelegate ()
-
-@end
-
 @implementation AppDelegate
 
 
@@ -23,6 +19,8 @@
     self.model = [AGTSimpleCoreDataStack coreDataStackWithModelName:@"Model"];
     
     [self testData];
+    
+    [self autoSave];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
@@ -72,7 +70,23 @@
     [ACCNote noteWithName:@"New Note(1)"
                                        notebook:firstNotebook
                                         context:self.model.context];
+    // search
+    NSFetchRequest *req = [[NSFetchRequest alloc]initWithEntityName:[ACCNote entityName]];
+    // order
+    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:ACCNamedEntityAttributes.name ascending:YES],
+                            [NSSortDescriptor sortDescriptorWithKey:ACCNamedEntityAttributes.modificationDate ascending:NO]];
     
+    NSError *error = nil;
+    NSArray *results = [self.model.context executeFetchRequest:req
+                                                         error:&error];
+    
+    if (results == nil){
+        NSLog(@"Error al buscar: %@",results);
+    } else {
+        NSLog(@"Results %@",results);
+    }
+    // delete
+    [self.model.context deleteObject:firstNote];
     
     [self save];
    
@@ -86,9 +100,18 @@
         NSLog(@"error saving %s \n\n %@", __func__, error);
     }];
 
-    
 }
 
+-(void) autoSave {
+    
+    NSLog(@"Autosaving...");
+    
+    [self save];
+    
+    [self performSelector:@selector(autoSave)
+               withObject:nil
+               afterDelay:2];
+}
 
 
 

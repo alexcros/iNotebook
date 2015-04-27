@@ -13,7 +13,8 @@
     return @[@"name", @"creationDate",  @"notebook", @"photo"];
 }
 
-+(instancetype) noteWithName:(ACCNote*) name
++(instancetype) noteWithName:(NSString
+                              *) name
                     notebook:(ACCNotebook*) notebook
                      context:(NSManagedObjectContext*) context {
     
@@ -29,8 +30,9 @@
     
     ACCNote *note = [NSEntityDescription insertNewObjectForEntityForName:[ACCNote entityName] inManagedObjectContext:context];
     note.creationDate = [NSDate date];
-    note.modificationDate = [NSDate date];
     note.notebook = notebook;
+    note.modificationDate = [NSDate date];
+    note.name = name;
     
     return note;
     

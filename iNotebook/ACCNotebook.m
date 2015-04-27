@@ -19,6 +19,7 @@
     //instance
     ACCNotebook *notebook = [NSEntityDescription insertNewObjectForEntityForName:[ACCNotebook entityName] inManagedObjectContext:context];
     
+    notebook.name = name;
     notebook.creationDate = [NSDate date];
     notebook.modificationDate = [NSDate date];
     
